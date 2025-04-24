@@ -64,3 +64,9 @@ install_man(
         'cdparanoia.1',
     ),
 )
+
+install_header(
+    files(
+        'utils.h'
+    )
+)

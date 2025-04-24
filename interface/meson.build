@@ -21,3 +21,9 @@ cdda_interface = library(
     pic: true,
     version: '0.@0@'.format(meson.project_version())
 )
+
+install_header(
+    files(
+        'cdda_interface.h'
+    )
+)
