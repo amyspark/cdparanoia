@@ -55,6 +55,7 @@ cdparanoia = executable(
         'cachetest.c',
     ),
     link_with: [cdda_interface, cdda_paranoia],
+    dependencies: [m_dep, rt_dep],
     install: true,
 )
 
