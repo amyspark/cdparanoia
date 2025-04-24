@@ -9,9 +9,21 @@ project('cdparanoia', 'c',
 
 cc = meson.get_compiler('c')
 
-project_args = cc.get_supported_arguments(
-    ['-fsigned-char']
-)
+project_args = cc.get_supported_arguments([
+    '-fsigned-char',
+    # Warnings from recent GCC
+    '-Wno-unused-but-set-variable',
+    '-Wno-misleading-indentation',
+    '-Wno-maybe-uninitialized',
+    '-Wno-unused-function',
+    '-Wno-parentheses',
+    '-Wno-sizeof-pointer-memaccess',
+    '-Wno-unused-variable',
+    '-Wno-pointer-sign',
+    '-Wno-address',
+    # Warnings from recent clang
+    '-Wno-absolute-value'
+])
 
 if host_machine.cpu_family() == 'x86' and get_option('optimization') != '0'
     project_args += cc.get_supported_arguments(
